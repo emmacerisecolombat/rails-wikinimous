@@ -1,2 +1,11 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<h1>Wikinimous</h1>
+
+<%= link_to 'Create an Article', new_article_path %>
+<div>
+  <% @articles.each do |article| %>
+    <h3 class="text-center"><%= article.title %></h3>
+    <p class="text-center"><%= article.content %></p>
+    <%= link_to "Go Check", article_path(article)%>
+    <%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you Sure?"}%>
+  <% end %>
+</div>
